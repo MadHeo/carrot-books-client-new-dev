@@ -40,15 +40,15 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import type { BookList } from '@/types/book'
+import type { IBookList } from '@/types/book'
 import book from '@/api/book'
 
 const props = defineProps<{
-  bookData?: BookList
+  bookData?: IBookList
 }>()
 const emits = defineEmits(['onClickPrev', 'closeModal'])
 
-const bookData = ref<BookList>(
+const bookData = ref<IBookList>(
   props.bookData ?? {
     title: '',
     author: '',

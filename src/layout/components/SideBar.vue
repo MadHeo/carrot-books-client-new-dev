@@ -2,9 +2,9 @@
   <div class="w-60 bg-gray200 flex-col flex gap-8 h-screen">
     <div>
       <div class="mb-20 px-10 mt-6">
-        <NuxtLink to="/">
+        <router-link to="/main">
           <img id="logo-h" class="h-full w-full cursor-pointer" src="/image/logo_vertical.png" />
-        </NuxtLink>
+        </router-link>
       </div>
     </div>
     <div class="h-full flex-col flex justify-between">

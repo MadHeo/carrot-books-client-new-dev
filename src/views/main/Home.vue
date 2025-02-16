@@ -24,8 +24,14 @@
 
 <script setup lang="ts">
 import book from '@/api/book'
+import { useRegisterStore } from '@/stores/register'
 import type { IBookDetail } from '@/types/book'
-import { onMounted, reactive, ref } from 'vue'
+import { onActivated, onMounted, reactive, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+
+const registerStore = useRegisterStore()
+
+const router = useRouter()
 
 const bookList = ref<IBookDetail[] | null>(null)
 const searchParams = reactive({
@@ -43,8 +49,15 @@ const getBookList = async () => {
 }
 
 const onClickBook = (id: string) => {
-  console.log(id)
+  router.push(`/detail/${id}`)
 }
+
+watch(
+  () => registerStore.isRegisterModalOpen,
+  (newVal) => {
+    if (!newVal) getBookList()
+  },
+)
 
 onMounted(() => {
   getBookList()

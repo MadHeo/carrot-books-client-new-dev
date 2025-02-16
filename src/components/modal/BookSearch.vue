@@ -63,19 +63,19 @@
 import { computed, reactive, ref } from 'vue'
 import { useRegisterStore } from '../../stores/register'
 import book from '@/api/book'
-import type { BookList } from '@/types/book'
+import type { IBookList } from '@/types/book'
 import BookRegist from './BookRegist.vue'
 import { debounce } from 'lodash'
 
 const registerStore = useRegisterStore()
-const books = ref<BookList[]>([])
+const books = ref<IBookList[]>([])
 const isSelect = ref(false)
 const searchParam = reactive({
   limit: '50',
   page: '1',
   query: '',
 })
-const selectedBook = ref<BookList>()
+const selectedBook = ref<IBookList>()
 
 const searchBooks = debounce(async (event: Event) => {
   const target = event.target as HTMLInputElement
@@ -92,7 +92,7 @@ const searchBooks = debounce(async (event: Event) => {
   }
 }, 600)
 
-const onClickBook = (data: BookList, index: number) => {
+const onClickBook = (data: IBookList, index: number) => {
   isSelect.value = true
   selectedBook.value = data
 }

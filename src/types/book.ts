@@ -1,10 +1,10 @@
-export interface BookSearchParams {
+export interface IBookSearchParams {
   limit: string
   page: string
   query?: string
 }
 
-export interface BookList {
+export interface IBookList {
   title: string
   author: string
   cover: string
@@ -24,4 +24,23 @@ export interface IBookDetail {
     name: string
     profileImage: string
   }
+}
+
+export interface IOwner {
+  id: string
+  name: string
+  profileImage: string
+}
+
+export interface IBookSelectDetail {
+  id: string
+  isbn: string
+  title: string
+  categoryName: string
+  author: string
+  publisher: string
+  cover: string
+  ownerDescription: string
+  owner: IOwner
+  rentalStatus: 'available' | 'unavailable'
 }
