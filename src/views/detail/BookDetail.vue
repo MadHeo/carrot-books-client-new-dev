@@ -2,7 +2,7 @@
   <div class="px-20 py-16">
     <div class="w-full h-96 flex flex-row">
       <div class="w-64 mr-5 flex flex-col gap-4">
-        <img :src="bookData?.cover" alt="" class="h-80 rounded object-cover" />
+        <img :src="bookData?.cover" alt="" class="h-80 rounded object-scale-down" />
         <button
           v-if="bookData && !isRental"
           class="h-14 py-4 rounded text-gray100 bg-primary active:bg-primaryDark"
